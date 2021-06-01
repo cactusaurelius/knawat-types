@@ -9,6 +9,7 @@ export interface SalesOrder {
   coupon: string;
   createDate: Date;
   discount: number;
+  shipping_charge: number;
   externalId: string;
   financialStatus:
     | "unpaid"
