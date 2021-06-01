@@ -23,7 +23,7 @@ export interface InvoiceResponse {
   date: string;
   due_date: string;
   due_days: string;
-  total: number;
+  invoice: { invoiceId: string };
   invoicePayments: [
     {
       amountUsed: 0;
@@ -40,7 +40,7 @@ export interface InvoiceResponse {
   reference_number: string;
   shipping_charge: number;
   status: string;
-  invoice: { invoiceId: string };
+  total: number;
 }
 
 /**
@@ -60,31 +60,31 @@ export interface Invoice {
   customerName: string;
   customer_id: string;
   customer_name: string;
-  total: number;
-  invoiceId: string;
-  status: string;
+  date: string;
+  dueDate: string;
+  dueDays: string;
   due_date: string;
   due_days: string;
   id: string;
-  message: string;
-  date: string;
-  invoiceNumber: string;
-  invoice_id: string;
-  omsId: string;
-  isInclusiveTax: boolean;
-  dueDate: string;
-  lastModifiedTime: string;
-  reference_number: string;
-  invoice_number: string;
-  shippingCharge: number;
-  referenceNumber: string;
-  last_modified_time: string;
-  shipping_charge: number;
   invoice: {
     invoiceId: string;
   };
+  invoiceId: string;
+  invoiceNumber: string;
+  invoice_id: string;
+  invoice_number: string;
+  isInclusiveTax: boolean;
   items?: InvoiceItems[];
-  dueDays: string;
+  lastModifiedTime: string;
+  last_modified_time: string;
+  message: string;
+  omsId: string;
+  referenceNumber: string;
+  reference_number: string;
+  shippingCharge: number;
+  shipping_charge: number;
+  status: string;
+  total: number;
 }
 
 /**
@@ -167,10 +167,10 @@ interface InvoiceItems {
   taxId: string;
   taxName?: string;
   taxPercentage?: number;
-  total?: number;
-  weight?: number;
   taxType?: string;
+  total?: number;
   url?: string;
+  weight?: number;
 }
 
 export interface InvoiceGetParams {

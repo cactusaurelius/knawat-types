@@ -33,11 +33,11 @@ export interface SalesOrder {
   isInclusiveTax: boolean;
   items: Partial<SalesOrderItem>[];
   notes: string;
-  shipping_charge: number;
   orderNumber: string;
   shipmentDate: Date;
   shipping: Address;
   shippingCharge: number;
+  shipping_charge: number;
   shipping_method: string;
   status: string;
   subscription: string;

@@ -94,6 +94,6 @@ export interface PaymentRequestParams {
   }[];
   reference: string;
   referenceNumber?: string;
-  store: string;
   reference_number?: string;
+  store: string;
 }
