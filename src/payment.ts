@@ -5,20 +5,20 @@
  * @interface Payment
  */
 export interface Payment {
-  storeId: string;
-  paymentMode: string;
-  amount: number;
-  invoices: PaymentInvoice[];
-  bankCharges: number;
   accountId: string;
   accountName: string;
-  paymentId: string;
-  unusedAmount: number;
-  referenceNumber: string;
+  amount: number;
+  bankCharges: number;
+  customerId: string;
   date: Date;
   description: string;
-  customerId: string;
   force: boolean;
+  invoices: PaymentInvoice[];
+  paymentId: string;
+  paymentMode: string;
+  referenceNumber: string;
+  storeId: string;
+  unusedAmount: number;
 }
 
 /**
@@ -28,19 +28,19 @@ export interface Payment {
  * @interface PaymentResponse
  */
 export interface PaymentResponse {
-  store_id: string;
-  payment_mode: string;
-  amount: number;
-  invoices: PaymentInvoiceResponse[];
-  bank_charges: number;
   account_id: string;
   account_name: string;
-  payment_id: string;
-  unused_amount: number;
-  reference: string;
+  amount: number;
+  bank_charges: number;
   date: Date;
   description: string;
+  invoices: PaymentInvoiceResponse[];
+  payment_id: string;
+  payment_mode: string;
   payments: [Payment];
+  reference: string;
+  store_id: string;
+  unused_amount: number;
 }
 
 /**
@@ -69,31 +69,31 @@ export interface PaymentInvoiceResponse {
  * @interface PaymentRequestParams
  */
 export interface PaymentRequestParams {
-  id: string;
-  payment_mode: string;
-  amount: number;
   account_id: string;
-  invoices: {
-    invoice_id: string;
-    amount_applied: number;
-  }[];
+  amount: number;
   bank_charges: number;
-  reference: string;
+  customerId?: string;
   description: string;
-  store: string;
+  id: string;
+  invoices: {
+    amount_applied: number;
+    invoice_id: string;
+  }[];
+  limit?: number;
+  page?: number;
+  paymentMode?: string;
   payment_currency?: string;
+  payment_mode: string;
+  perPage?: number;
   purchase_units: {
     amount: {
-      value: number;
       currency_code: string;
+      value: number;
     };
     description?: string;
   }[];
-  customerId?: string;
-  page?: number;
-  perPage?: number;
+  reference: string;
   referenceNumber?: string;
-  paymentMode?: string;
-  limit?: number;
+  store: string;
   reference_number?: string;
 }

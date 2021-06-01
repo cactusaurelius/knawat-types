@@ -5,42 +5,42 @@
  * @interface Invoice
  */
 export interface InvoiceResponse {
-  invoice_id: string;
-  customer_name: string;
+  adjustment: number;
+  balance: number;
+  code: number;
+  created_time: string;
+  creditNotes: [
+    {
+      amountApplied: 0;
+      creditNoteId: string;
+      creditNotesInvoiceId: string;
+      date: string;
+      invoiceId: string;
+    }
+  ];
   customer_id: string;
-  status: string;
-  invoice_number: string;
-  reference_number: string;
+  customer_name: string;
   date: string;
   due_date: string;
   due_days: string;
   total: number;
-  balance: number;
-  created_time: string;
-  last_modified_time: string;
-  shipping_charge: number;
-  adjustment: number;
-  invoices: [{ invoice_id: string }];
-  invoice: { invoiceId: string };
   invoicePayments: [
     {
+      amountUsed: 0;
+      invoiceId: string;
       invoicePaymentId: string;
       paymentId: string;
-      invoiceId: string;
-      amountUsed: 0;
     }
   ];
-  creditNotes: [
-    {
-      creditNotesInvoiceId: string;
-      creditNoteId: string;
-      invoiceId: string;
-      amountApplied: 0;
-      date: string;
-    }
-  ];
-  code: number;
+  invoice_id: string;
+  invoice_number: string;
+  invoices: [{ invoice_id: string }];
+  last_modified_time: string;
   message: string;
+  reference_number: string;
+  shipping_charge: number;
+  status: string;
+  invoice: { invoiceId: string };
 }
 
 /**
@@ -50,41 +50,41 @@ export interface InvoiceResponse {
  * @interface Invoice
  */
 export interface Invoice {
-  id: string;
-  invoiceId: string;
-  customerName: string;
-  customerId: string;
-  status: string;
-  invoiceNumber: string;
-  referenceNumber: string;
-  date: string;
-  dueDate: string;
-  dueDays: string;
-  total: number;
-  balance: number;
-  createdTime: string;
-  lastModifiedTime: string;
-  shippingCharge: number;
   adjustment: number;
-  message: string;
+  balance: number;
   code: number;
+  coupon: string;
+  createdTime: string;
+  created_time: string;
+  customerId: string;
+  customerName: string;
+  customer_id: string;
+  customer_name: string;
+  total: number;
+  invoiceId: string;
+  status: string;
+  due_date: string;
+  due_days: string;
+  id: string;
+  message: string;
+  date: string;
+  invoiceNumber: string;
+  invoice_id: string;
+  omsId: string;
+  isInclusiveTax: boolean;
+  dueDate: string;
+  lastModifiedTime: string;
+  reference_number: string;
+  invoice_number: string;
+  shippingCharge: number;
+  referenceNumber: string;
+  last_modified_time: string;
+  shipping_charge: number;
   invoice: {
     invoiceId: string;
   };
-  omsId: string;
-  invoice_id: string;
-  customer_name: string;
-  customer_id: string;
-  invoice_number: string;
-  reference_number: string;
-  due_date: string;
-  due_days: string;
-  created_time: string;
-  last_modified_time: string;
-  shipping_charge: number;
-  coupon: string;
   items?: InvoiceItems[];
-  isInclusiveTax: boolean;
+  dueDays: string;
 }
 
 /**
@@ -94,25 +94,25 @@ export interface Invoice {
  * @interface InvoiceRequestParams
  */
 export interface InvoiceRequestParams {
-  id: string;
-  storeId: string;
-  customerId: string;
-  orderId: string;
-  items: InvoiceItems[];
-  discount: {
-    value: number;
-    type: string;
-  };
-  isInclusiveTax: boolean;
   coupon: string;
-  dueDate: string;
-  useSavedPaymentMethods: string;
   credit: number;
-  paymentAmount: number;
-  omsId: string;
+  customerId: string;
+  discount: {
+    type: string;
+    value: number;
+  };
+  dueDate: string;
+  id: string;
   invoiceId: string;
-  status: string;
+  isInclusiveTax: boolean;
+  items: InvoiceItems[];
+  omsId: string;
+  orderId: string;
+  paymentAmount: number;
   reference_number: string;
+  status: string;
+  storeId: string;
+  useSavedPaymentMethods: string;
 }
 
 /**
@@ -122,24 +122,24 @@ export interface InvoiceRequestParams {
  * @interface OmsApplyCreditResponse
  */
 export interface OmsApplyCreditResponse {
-  invoicePayments: [
-    {
-      invoicePaymentId: string;
-      paymentId: string;
-      invoiceId: string;
-      amountUsed: number;
-    }
-  ];
+  code: number;
   creditNotes: [
     {
-      creditNotesInvoiceId: string;
-      creditNoteId: string;
-      invoiceId: string;
       amountApplied: number;
+      creditNoteId: string;
+      creditNotesInvoiceId: string;
       date: string;
+      invoiceId: string;
     }
   ];
-  code: number;
+  invoicePayments: [
+    {
+      amountUsed: number;
+      invoiceId: string;
+      invoicePaymentId: string;
+      paymentId: string;
+    }
+  ];
   message: string;
 }
 
@@ -150,37 +150,37 @@ export interface OmsApplyCreditResponse {
  * @interface InvoiceItems
  */
 interface InvoiceItems {
-  id?: string;
-  sku: string;
+  accountId: string;
   barcode?: string;
-  name: string;
   description: string;
-  url?: string;
-  image?: string;
-  weight?: number;
-  rate: number;
-  quantity: number;
-  quantityCancelled?: number;
-  productType?: string;
   discount?: string;
   discountAmount?: number;
-  total?: number;
+  id?: string;
+  image?: string;
+  name: string;
+  productType?: string;
   purchaseRate?: number;
-  accountId: string;
+  quantity: number;
+  quantityCancelled?: number;
+  rate: number;
+  sku: string;
   taxId: string;
   taxName?: string;
-  taxType?: string;
   taxPercentage?: number;
+  total?: number;
+  weight?: number;
+  taxType?: string;
+  url?: string;
 }
 
 export interface InvoiceGetParams {
-  page?: number;
-  limit?: number;
-  reference_number?: string;
   invoice_number?: string;
+  limit?: number;
+  page?: number;
+  reference_number?: string;
 }
 export interface InvoiceApplyCreditsParams {
   id: string;
-  useSavedPaymentMethods?: string;
   paymentAmount?: number;
+  useSavedPaymentMethods?: string;
 }

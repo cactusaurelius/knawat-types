@@ -12,9 +12,9 @@ export interface I18nText {
  * I18n Type
  */
 export interface I18n {
-  tr: string;
-  en: string;
   ar: string;
+  en: string;
+  tr: string;
 }
 
 /**
@@ -32,9 +32,9 @@ export interface CommonError extends Error {
     status?: number;
   };
   code?: number;
-  statusCode?: number;
-  msg?: string;
   data?: unknown;
+  msg?: string;
+  statusCode?: number;
 }
 
 /**
@@ -44,12 +44,12 @@ export interface CommonError extends Error {
  * @interface ElasticSearchType
  */
 export interface ElasticSearchType {
-  index?: string;
-  size?: number;
-  type?: string;
   body?: {
-    size?: number;
     query?: {
+      bool?: {
+        filter?: { [name: string]: any };
+        must_not?: { [name: string]: any };
+      };
       nested?: {
         path?: string;
         query?: {
@@ -58,32 +58,32 @@ export interface ElasticSearchType {
           };
         };
       };
-      bool?: {
-        filter?: { [name: string]: any };
-        must_not?: { [name: string]: any };
-      };
     };
+    size?: number;
   };
+  index?: string;
+  size?: number;
+  type?: string;
 }
 
 export interface ElasticSearchResponse {
+  code?: number;
+  count?: number;
   hits: {
+    hits: { [name: string]: any }[];
     total: {
       value: number;
     };
-    hits: { [name: string]: any }[];
   };
-  code?: number;
-  count?: number;
 }
 
 export interface MongoQueryType {
   _id?: string;
-  startDate?: {
-    $lte?: Date;
-  };
   endDate?: {
     $gte?: Date;
+  };
+  startDate?: {
+    $lte?: Date;
   };
   type?: string;
 }

@@ -9,7 +9,6 @@ export interface SalesOrder {
   coupon: string;
   createDate: Date;
   discount: number;
-  shipping_charge: number;
   externalId: string;
   financialStatus:
     | "unpaid"
@@ -34,6 +33,7 @@ export interface SalesOrder {
   isInclusiveTax: boolean;
   items: Partial<SalesOrderItem>[];
   notes: string;
+  shipping_charge: number;
   orderNumber: string;
   shipmentDate: Date;
   shipping: Address;
