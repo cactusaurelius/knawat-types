@@ -16,5 +16,4 @@ export * from "./sp-product";
 export * from "./tax";
 export * from "./webhook";
 export * from "./invoice";
-export * from "./i18ntext";
 export * from "./payment";
