@@ -119,9 +119,9 @@ export interface InvoiceRequestParams {
  * OMS Invoice Apply credit response
  *
  * @export
- * @interface OmsApplyCreditResponse
+ * @interface invoiceApplyCreditResponse
  */
-export interface OmsApplyCreditResponse {
+export interface invoiceApplyCreditResponse {
   code: number;
   creditNotes: [
     {
