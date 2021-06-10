@@ -17,7 +17,7 @@ export interface Subscription {
   renewed?: boolean;
   retries?: Date[];
   startDate: Date;
-  status: "confirmed" | "pending" | "cancelled";
+  status: "active" | "canceled" | "unpaid" | "incomplete" | "incomplete_expired" | "trialing" | "past_due";
   storeId: string;
   updatedAt: Date;
 }
