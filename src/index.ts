@@ -9,6 +9,7 @@ export * from "./purchase-order";
 export * from "./sales-order";
 export * from "./shipping-policy";
 export * from "./store";
+export * from "./zone";
 export * from "./subscription";
 export * from "./supplier";
 export * from "./sp-category";
