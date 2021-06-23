@@ -13,7 +13,6 @@ export interface Store<T = unknown, P = unknown> {
   currency: string;
   debit: number;
   external_data: P;
-  
 
   internal_data: T;
   languages: string[];
@@ -45,11 +44,14 @@ export interface Store<T = unknown, P = unknown> {
     | "catalog"
     | "youcan"
     | "other";
-  
+
   updated: Date;
-  
+
   url: string;
-  users: RoleUser<"owner" | "support" | "sales" | "accounting" | "products" | "orders">[];
+  users: RoleUser<
+    "owner" | "support" | "sales" | "accounting" | "products" | "orders"
+  >[];
+  zone: string;
 }
 
 export interface BillingAddress extends Address {
@@ -62,7 +64,7 @@ export interface BillingAddress extends Address {
  * @export
  * @interface ShippingMethod
  */
- interface ShippingMethod {
+interface ShippingMethod {
   name: string;
   sort: number;
 }
