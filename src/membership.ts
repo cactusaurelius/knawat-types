@@ -10,7 +10,9 @@ export class Membership<T = unknown> {
   active: boolean;
   public: boolean;
   cost: number;
+  /** @deprecated Use zone instead */
   country: string;
+  zone: string;
   discount: number;
   strickedprice: number;
   paymentFrequency: number;
